@@ -29,7 +29,7 @@ get '/recipes/:id/edit' do |id|
 end
 
 def show_recipe
-  respond_to do |format|               
+  respond_to do |format|
     format.js
-  end        
+  end
 end
