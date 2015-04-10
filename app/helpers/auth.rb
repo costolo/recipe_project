@@ -18,15 +18,22 @@ def current_user
   User.find(session[:user_id]) if session[:user_id]
 end
 
-def validate_account(name, password)
-  name_valid?(name) && password_valid?(password)
-end
-
 def name_valid?(name)
   valid_chars = ("A".."Z").to_a + ("a".."z").to_a + ["-","_"]
-  name.length.between?(5,16) && name.split('').all? {|i| valid_chars.include?(i)}
+
+  if name.length.between?(4,15) && name.split('').all? {|i| valid_chars.include?(i)}
+    true
+  else
+    false
+  end
 end
 
 def password_valid?(password)
+  valid_chars = ("A".."Z").to_a + ("a".."z").to_a + ("0".."9").to_a
 
+  if password.length.between?(4,10) && password.split('').all? {|i| valid_chars.include?(i)}
+    true
+  else
+    false
+  end
 end
