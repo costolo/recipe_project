@@ -28,6 +28,7 @@ post '/signup' do
     session_in!(user)
     redirect '/'
   else
+    flash[:notice] = "Passwords do not match."
     redirect '/signup'
   end
 end
