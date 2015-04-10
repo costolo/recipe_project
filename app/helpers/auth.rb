@@ -58,3 +58,8 @@ end
 def name_unique?(name)
   User.where(name: name).count == 0
 end
+
+def bounce_with_error_msg!(msg)
+  set_error! msg
+  redirect '/signin'
+end

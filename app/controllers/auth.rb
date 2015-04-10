@@ -11,12 +11,10 @@ post '/signin' do
       session_in!(user)
       redirect '/recipes'
     else
-      set_error! "Incorrect Password"
-      redirect '/signin'
+      bounce_with_error_msg! "Incorrect Password"
     end
   else
-    set_error! "Incorrect Username"
-    redirect '/signin'
+    bounce_with_error_msg! "Incorrect Username"
   end
 end
 
