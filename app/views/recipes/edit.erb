@@ -1,1 +1,10 @@
-edit a recipe
+<div>
+  <form action="/recipes/<%=@recipe.id%>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="text" name="recipe[name]" value=<%=@recipe.name%>>
+    <input type="text" name="recipe[ingredients]" value=<%=@recipe.ingredients%>>
+    <input type="text" name="recipe[instructions]" value=<%=@recipe.instructions%>>
+    <input type="text" name="recipe[photo_url]" value=<%=@recipe.photo_url%>>
+    <input type="submit">
+  </form>
+</div>
