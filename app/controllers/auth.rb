@@ -9,7 +9,6 @@ post '/signin' do
     user = unconfirmed_user.authenticate(params[:password])
     if user
       session_in!(user)
-      redirect '/recipes'
     else
       bounce_with_error_msg! "Incorrect Password"
     end
@@ -33,7 +32,6 @@ post '/signup' do
 
   if user.id && account_valid?(params[:name], params[:password])
     session_in!(user)
-    redirect '/'
   else
     set_error! "Passwords do not match." if password_valid?(params[:password])
     redirect '/signup'
