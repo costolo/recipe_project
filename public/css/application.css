@@ -7,3 +7,11 @@
 th {
   text-align: left;
 }
+
+.col-md-4{
+	background-color: gray;
+}
+
+.col-md-8{
+	background-color: blue;
+}
