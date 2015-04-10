@@ -8,7 +8,7 @@ post '/signin' do
   if unconfirmed_user
     user = unconfirmed_user.authenticate(params[:password])
     if user
-      session[:user_id] = user.id
+      session_in!(user)
       redirect '/authenticated'
     else
       redirect '/signin'
@@ -25,7 +25,7 @@ end
 post '/signup' do
   user = User.create(params[:user])
   if user.id
-    session[:user_id] = user.id
+    session_in!(user)
     redirect '/'
   else
     redirect '/signup'

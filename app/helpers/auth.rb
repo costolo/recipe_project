@@ -1,4 +1,5 @@
-def session_in!
+def session_in!(user)
+  session[:user_id] = user.id
 end
 
 def session_out!
