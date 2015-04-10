@@ -13,7 +13,8 @@ end
 post '/signup' do
   user = User.create(params[:user])
   if user.id
-    session[:user_id] == user_id
+    session[:user_id] = user.id
+    redirect '/'
   else
     redirect '/signup'
   end
