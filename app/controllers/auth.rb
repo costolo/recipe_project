@@ -40,11 +40,3 @@ get '/signout' do
 
   redirect '/'
 end
-
-# get '/authenticated' do
-#   if session[:user_id]
-#     erb :'auth/authenticated'
-#   else
-#     redirect '/signin'
-#   end
-# end
