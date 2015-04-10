@@ -11,11 +11,11 @@ post '/signin' do
       session_in!(user)
       redirect '/authenticated'
     else
-      flash[:notice] = "Incorrect Password"
+      set_error! "Incorrect Password"
       redirect '/signin'
     end
   else
-    flash[:notice] = "Incorrect Username"
+    set_error! "Incorrect Username"
     redirect '/signin'
   end
 end
@@ -30,13 +30,14 @@ post '/signup' do
     session_in!(user)
     redirect '/'
   else
-    flash[:notice] = "Passwords do not match."
+    set_error! "Passwords do not match."
     redirect '/signup'
   end
 end
 
 get '/signout' do
   session_out!
+
   redirect '/'
 end
 
