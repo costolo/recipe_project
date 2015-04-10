@@ -1,0 +1,9 @@
+<h1><%=@recipe.name%></h1>
+<h3> ingredients </h3>
+<% @recipe.ingredients_array.each do |ingredient| %>
+	<%= ingredient %><br>
+<% end %>
+<h3>instructions</h3>
+<%= @recipe.instructions %><br>
+<br>
+<p>By: <%= @recipe.user.name %></p>

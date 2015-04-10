@@ -8,4 +8,8 @@ class Recipe < ActiveRecord::Base
   def set_vote_count
     self.vote_count = 0
   end
+
+  def ingredients_array
+  	self.ingredients.split(" ")
+  end
 end
