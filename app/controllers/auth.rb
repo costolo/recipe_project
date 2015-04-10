@@ -9,7 +9,7 @@ post '/signin' do
     user = unconfirmed_user.authenticate(params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/'
+      redirect '/authenticated'
     else
       redirect '/signin'
     end
@@ -33,6 +33,14 @@ post '/signup' do
 end
 
 get '/signout' do
-  session[:user_id] = nil
+  session_out!
   redirect '/'
+end
+
+get '/authenticated' do
+  if session[:user_id]
+    erb :'auth/authenticated'
+  else
+    redirect '/signin'
+  end
 end

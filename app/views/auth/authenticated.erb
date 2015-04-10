@@ -1,0 +1,4 @@
+<p>Hello, <%=User.find(session[:user_id]).name%>!</p>
+<form method="get" action="/signout">
+  <input type="submit" value="Sign Out">
+</form>
