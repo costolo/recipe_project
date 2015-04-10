@@ -10,6 +10,10 @@
   <label>Confirm Password</label><br>
     <input type="password" name="user[password_confirmation]">
   <br><br>
-  <input type="submit">
-  <%=get_error%>
+  <input type="submit"><br><br>
+  <div class="error_box">
+    <%=get_error%><br>
+    <%=flash[:name_error] if flash[:name_error]%><br>
+    <%=flash[:password_error] if flash[:password_error]%>
+  </div>
 </form>

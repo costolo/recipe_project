@@ -18,6 +18,19 @@ def current_user
   User.find(session[:user_id]) if session[:user_id]
 end
 
+def set_error_if_invalid!(name, password)
+  unless name_valid?(name)
+    flash[:name_error] = "Username (required) must be between 4 and 15 letters (inclusive) and only allow _ or -."
+  end
+  unless password_valid?(password)
+    flash[:password_error] = "Password (required) must be between 4 and 15 letters (inclusive)."
+  end
+end
+
+def account_valid?(name, password)
+  name_valid?(name) && password_valid?(password)
+end
+
 def name_valid?(name)
   valid_chars = ("A".."Z").to_a + ("a".."z").to_a + ["-","_"]
 
@@ -36,4 +49,8 @@ def password_valid?(password)
   else
     false
   end
+end
+
+def passwords_match?(pw, conf_pw)
+  pw == conf_pw
 end
