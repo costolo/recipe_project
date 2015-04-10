@@ -27,3 +27,9 @@ get '/recipes/:id/edit' do |id|
   @recipe = Recipe.find(id)
   erb :'recipes/edit'
 end
+
+def show_recipe
+  respond_to do |format|               
+    format.js
+  end        
+end
