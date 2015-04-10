@@ -54,3 +54,7 @@ end
 def passwords_match?(pw, conf_pw)
   pw == conf_pw
 end
+
+def name_unique?(name)
+  User.where(name: name).count == 0
+end

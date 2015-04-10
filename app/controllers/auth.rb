@@ -25,15 +25,19 @@ get '/signup' do
 end
 
 post '/signup' do
-  set_error_if_invalid!(params[:user][:name], params[:user][:password])
+  unless name_unique?(params[:name])
+    set_error! "Username already exists."
+    redirect '/signup'
+  end
 
-  user = User.create(params[:user])
+  set_error_if_invalid!(params[:name], params[:password])
+  user = User.create(name: params[:name], password: params[:password], password_confirmation: params[:password_confirmation])
 
-  if user.id && account_valid?(user.name, params[:user][:password])
+  if user.id && account_valid?(params[:name], params[:password])
     session_in!(user)
     redirect '/'
   else
-    set_error! "Passwords do not match." if password_valid?(params[:user][:password])
+    set_error! "Passwords do not match." if password_valid?(params[:password])
     redirect '/signup'
   end
 end

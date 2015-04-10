@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  validates uniqueness: true
+  validates :name, uniqueness: true
 
   #test
   has_many :votes
