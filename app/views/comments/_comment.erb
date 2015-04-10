@@ -1,0 +1,4 @@
+<h4>comments</h4>
+<% @comments.each do |comment| %>
+  <li><%= comment.content %> - <a href="/users/<%= comment.user_id %>"><%= comment.user.name %><a/></li>
+<% end %>
