@@ -5,5 +5,6 @@ class CreateVotes < ActiveRecord::Migration
       t.references :recipe
 
       t.timestamps
+    end
   end
 end
