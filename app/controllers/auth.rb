@@ -11,9 +11,11 @@ post '/signin' do
       session_in!(user)
       redirect '/authenticated'
     else
+      flash[:notice] = "Incorrect Password"
       redirect '/signin'
     end
   else
+    flash[:notice] = "Incorrect Username"
     redirect '/signin'
   end
 end
