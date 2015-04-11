@@ -1,12 +1,13 @@
 <h1>recipe index</h1>
 <div>	
 	<% @recipes.each do |recipe| %>
-		<a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a><br>
-		
+		<a href="/recipes/<%= recipe.id %>" class="recipe_link"><%= recipe.name %></a><br>
 	<% end %>
 </div>
 
-<div id="render-partial">
+<div id="partial">
 </div>
+
+
 
 

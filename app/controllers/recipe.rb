@@ -8,8 +8,10 @@ get '/recipes/new' do
 end
 
 get '/recipes/:id' do |id|
-  @recipe = Recipe.find(id)
-  erb :'/recipes/show'
+  if request.xhr?
+    @recipe = Recipe.find(id)
+    erb :'/recipes/show'
+  end
 end
 
 post '/recipes' do
@@ -28,8 +30,3 @@ get '/recipes/:id/edit' do |id|
   erb :'recipes/edit'
 end
 
-def show_recipe
-  respond_to do |format|               
-    format.js
-  end        
-end

@@ -1,9 +1,25 @@
-<h1><%=@recipe.name%></h1>
-<h3> ingredients </h3>
-<% @recipe.ingredients_array.each do |ingredient| %>
-	<%= ingredient %><br>
-<% end %>
-<h3>instructions</h3>
-<%= @recipe.instructions %><br>
-<br>
-<p>By: <%= @recipe.user.name %></p>
+<script src="http://desandro.github.io/3dtransforms/js/utils.js"></script>
+<script src="http://desandro.github.io/3dtransforms/js/flip-card.js"></script>
+
+<section class="flip">	
+	<div id="card">
+		<h1><%=@recipe.name%></h1>
+		<figure class="front">
+			<h3> ingredients </h3>
+			<% @recipe.ingredients_array.each do |ingredient| %>
+				<%= ingredient %><br>
+			<% end %>
+			<h3>instructions</h3>
+			<%= @recipe.instructions %><br>
+			<br>
+			<p>By: <%= @recipe.user.name %></p>
+		</figure>
+		<figure class="back">
+			<img src="<%= @recipe.photo_url %>">
+		</figure>
+	</div>
+</section>
+
+<!-- <section id="options">
+  <p><button id="flip">magic</button></p>
+</section> -->
