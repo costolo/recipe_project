@@ -25,7 +25,6 @@ $(document).ready(function() {
 		});
 	});
 
-
 	$('.vote_action').submit(function(event) {
 		event.preventDefault();
 		var $target = $(event.target);
