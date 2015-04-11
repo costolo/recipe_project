@@ -17,6 +17,14 @@ th {
   margin-top:0px;
 }
 
+.vote {
+  opacity: 0.4;
+}
+
+.vote:hover {
+  opacity: 1;
+}
+
 .col-md-4{
 	width: 20%;
 }
@@ -26,11 +34,3 @@ th {
 	width: 80%;
 }
 
-#comment-overflow{
-  max-height:100px;
-  overflow:auto;
-}
-
-#rec-ind{
-  margin-top:0;
-}

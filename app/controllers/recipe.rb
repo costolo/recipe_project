@@ -10,7 +10,7 @@ end
 get '/recipes/:id' do |id|
   if request.xhr?
     @recipe = Recipe.find(id)
-     @comments = @recipe.comments
+    @comments = @recipe.comments
     erb :'/recipes/show'
   end
 end
@@ -31,3 +31,18 @@ get '/recipes/:id/edit' do |id|
   erb :'recipes/edit'
 end
 
+get '/recipes/:id/upvotes' do |id|
+  if request.xhr?
+    recipe = Recipe.find(id)
+    recipe.upvote
+    redirect "/recipes/#{recipe.id}"
+  end
+end
+
+get '/recipes/:id/downvotes' do |id|
+  if request.xhr?
+    recipe = Recipe.find(id)
+    recipe.downvote
+    redirect "/recipes/#{recipe.id}"
+  end
+end
