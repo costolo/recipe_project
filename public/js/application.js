@@ -34,9 +34,8 @@ $(document).ready(function() {
 			type: 'GET'
 		}).done(function(response){
 			console.log(response)
-			$(".col-md-6").html(response);
+			$("#vote-div").html(response);
 		});
 	});
-
 });
 

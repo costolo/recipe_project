@@ -33,16 +33,16 @@ end
 
 get '/recipes/:id/upvotes' do |id|
   if request.xhr?
-    recipe = Recipe.find(id)
-    recipe.upvote
-    redirect "/recipes/#{recipe.id}"
+    @recipe = Recipe.find(id)
+    @recipe.upvote
+    erb :'/votes/_vote', :layout => false
   end
 end
 
 get '/recipes/:id/downvotes' do |id|
   if request.xhr?
-    recipe = Recipe.find(id)
-    recipe.downvote
-    redirect "/recipes/#{recipe.id}"
+    @recipe = Recipe.find(id)
+    @recipe.downvote
+    erb :'/votes/_vote', :layout => false
   end
 end
