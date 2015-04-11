@@ -3,6 +3,11 @@ $(document).ready(function() {
 		event.preventDefault();
 		var $target = $(event.target);
 		console.log($target.attr("href"))
-		//$get.($target.attr("href"))
-	})
+		$.ajax({
+			url: $target.attr("href"),
+			type: 'GET'
+		}).done(function(response){
+			$(".col-md-6").html(response);
+		});
+	});
 });
