@@ -10,4 +10,10 @@ $(document).ready(function() {
 			$(".col-md-6").html(response);
 		});
 	});
+
+	$('#options').click(function(e) {
+		document.getElementById('flip').addEventListener( 'click', function(){
+    card.toggleClassName('flipped');
+  	}, false);
+	});
 });
