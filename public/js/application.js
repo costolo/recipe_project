@@ -17,9 +17,10 @@ $(document).ready(function() {
 		console.log($target.attr("action"));
 		$.ajax({
 			url: $target.attr("action"),
-			type: 'POST'
+			type: 'POST',
+			data: $target.serialize()
 		}).done(function(response){
-			$(".comment").html(response);
+			$(".col-md-6").html(response);
 		});
 	});
 });
