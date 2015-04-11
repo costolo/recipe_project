@@ -8,18 +8,18 @@ th {
   text-align: left;
 }
 
-.col-md-4{
+/*.col-md-4{
 	width: 20%;
 }
 
 .col-md-6{
 	float:right;
 	width: 80%;
-}
+}*/
 
-.flip { 
+/*.flip { 
   width: 50%;
-  height: 260px;
+  height: 100%;
   position: relative;
   perspective: 800px;
 }
@@ -51,4 +51,4 @@ th {
 img {
 	height:100px;
 	width:100px;
-}
+}*/

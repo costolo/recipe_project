@@ -10,6 +10,7 @@ end
 get '/recipes/:id' do |id|
   if request.xhr?
     @recipe = Recipe.find(id)
+     @comments = @recipe.comments
     erb :'/recipes/show'
   end
 end

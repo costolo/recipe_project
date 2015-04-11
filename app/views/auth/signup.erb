@@ -1,0 +1,19 @@
+<h1>Create Account</h1>
+
+<form method="POST" action="/signup">
+  <label>Username</label><br>
+    <input type="text" name="name"><br>
+
+  <label>Password</label><br>
+    <input type="password" name="password"><br>
+
+  <label>Confirm Password</label><br>
+    <input type="password" name="password_confirmation">
+  <br><br>
+  <input type="submit"><br><br>
+  <div class="error_box">
+    <%=get_error%><br>
+    <%=flash[:name_error] if flash[:name_error]%><br>
+    <%=flash[:password_error] if flash[:password_error]%>
+  </div>
+</form>

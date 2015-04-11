@@ -1,6 +1,3 @@
-<script src="http://desandro.github.io/3dtransforms/js/utils.js"></script>
-<script src="http://desandro.github.io/3dtransforms/js/flip-card.js"></script>
-
 <section class="flip">	
 	<div id="card">
 		<h1><%=@recipe.name%></h1>
@@ -12,14 +9,20 @@
 			<h3>instructions</h3>
 			<%= @recipe.instructions %><br>
 			<br>
-			<p>By: <%= @recipe.user.name %></p>
+			<p>By: <a href='/users/<%= @recipe.user_id %>'><%= @recipe.user.name %></a></p>
 		</figure>
 		<figure class="back">
 			<img src="<%= @recipe.photo_url %>">
 		</figure>
 	</div>
-<section id="options">
+<!-- <section id="options">
 	<button type="submit" id="flip">magic</button>
+</section> -->
 </section>
-</section>
+<% if current_user %>
+	<%= erb :'/comments/_comment' %>
+	<%= erb :'/comments/_comment_form' %>
+<% end %>
+
+
 
