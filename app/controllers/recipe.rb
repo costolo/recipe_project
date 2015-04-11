@@ -1,3 +1,5 @@
+require 'byebug'
+
 get '/recipes' do
   @recipes = Recipe.all
   erb :'/recipes/index'
@@ -17,7 +19,7 @@ end
 
 post '/recipes' do
   recipe = Recipe.create(params[:recipe])
-  redirect "/recipes/#{recipe.id}"
+  redirect "/recipes"
 end
 
 put '/recipes/:id' do |id|
@@ -33,16 +35,29 @@ end
 
 get '/recipes/:id/upvotes' do |id|
   if request.xhr?
+    byebug
     @recipe = Recipe.find(id)
-    @recipe.upvote
-    erb :'/votes/_vote', :layout => false
+    if !vote_exists?(current_user, @recipe)
+      Vote.create(recipe_id: @recipe.id, user_id: current_user.id)
+      @recipe.upvote
+      erb :'/votes/_vote', :layout => false
+    else
+      set_error!("You may only vote once idiot.")
+      erb :'/votes/_vote', :layout => false
+    end
   end
 end
 
 get '/recipes/:id/downvotes' do |id|
   if request.xhr?
     @recipe = Recipe.find(id)
-    @recipe.downvote
-    erb :'/votes/_vote', :layout => false
+    if !vote_exists?(current_user, @recipe)
+      Vote.create(recipe_id: @recipe.id, user_id: current_user.id)
+      @recipe.downvote
+      erb :'/votes/_vote', :layout => false
+    else
+      set_error!("You may only vote once idiot.")
+      erb :'/votes/_vote', :layout => false
+    end
   end
 end

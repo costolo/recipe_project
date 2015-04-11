@@ -12,7 +12,9 @@ def set_error!(msg)
 end
 
 def get_error
-  flash[:notice] if flash[:notice]
+  msg = flash[:notice]
+  flash[:notice] = nil
+  msg
 end
 
 def current_user

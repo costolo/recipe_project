@@ -3,12 +3,6 @@ body{
   padding:20px;
 }
 
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
-}
 th {
   text-align: left;
 }
@@ -32,5 +26,11 @@ th {
 .col-md-6{
 	float:right;
 	width: 80%;
+}
+
+.right-align {
+  float: right;
+  width: 900px;
+  text-align: right;
 }
 
