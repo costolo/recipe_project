@@ -1,24 +1,15 @@
-<section class="flip">	
-	<div id="card">
-		<h1><%=@recipe.name%></h1>
-		<figure class="front">
-			<h3> ingredients </h3>
-			<% @recipe.ingredients_array.each do |ingredient| %>
-				<%= ingredient %><br>
-			<% end %>
-			<h3>instructions</h3>
-			<%= @recipe.instructions %><br>
-			<br>
-			<p>By: <a href='/users/<%= @recipe.user_id %>'><%= @recipe.user.name %></a></p>
-		</figure>
-		<figure class="back">
-			<img src="<%= @recipe.photo_url %>">
-		</figure>
-	</div>
-<!-- <section id="options">
-	<button type="submit" id="flip">magic</button>
-</section> -->
-</section>
+<div id="recipe">
+	<h1><%=@recipe.name%></h1>
+	<h3> ingredients </h3>
+	<% @recipe.ingredients_array.each do |ingredient| %>
+		<%= ingredient %><br>
+	<% end %>
+	<h3>instructions</h3>
+	<%= @recipe.instructions %><br>
+	<br>
+	<p>By: <a href='/users/<%= @recipe.user_id %>'><%= @recipe.user.name %></a></p>
+</div>
+
 
 <% if current_user %>
 	<%= erb :'/comments/_comment' %>
