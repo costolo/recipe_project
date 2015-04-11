@@ -16,7 +16,6 @@ class Recipe < ActiveRecord::Base
   def upvote
     new_count = self.vote_count + 1
     self.update(vote_count: new_count)
-    self.save
   end
 
   def downvote
