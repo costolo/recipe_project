@@ -5,7 +5,8 @@ $(document).ready(function() {
 		console.log($target.attr("href"))
 		$.ajax({
 			url: $target.attr("href"),
-			type: 'GET'
+			type: 'GET',
+			data: $target.serialize()
 		}).done(function(response){
 			$(".col-md-6").html(response);
 		});
