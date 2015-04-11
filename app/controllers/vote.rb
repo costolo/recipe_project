@@ -1,3 +1,0 @@
-post '/votes' do
-
-end
