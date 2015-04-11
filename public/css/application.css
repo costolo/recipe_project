@@ -8,6 +8,14 @@ th {
   text-align: left;
 }
 
+.vote {
+  opacity: 0.4;
+}
+
+.vote:hover {
+  opacity: 1;
+}
+
 /*.col-md-4{
 	width: 20%;
 }
@@ -17,7 +25,7 @@ th {
 	width: 80%;
 }*/
 
-/*.flip { 
+/*.flip {
   width: 50%;
   height: 100%;
   position: relative;

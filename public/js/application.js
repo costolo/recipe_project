@@ -11,9 +11,20 @@ $(document).ready(function() {
 		});
 	});
 
-	$('#options').click(function(e) {
-		document.getElementById('flip').addEventListener( 'click', function(){
-    card.toggleClassName('flipped');
-  	}, false);
+
+
+	$('.vote_action').submit(function(event) {
+		event.preventDefault();
+		var $target = $(event.target);
+		console.log($target.attr("action"))
+		$.ajax({
+			url: $target.attr("action"),
+			type: 'GET'
+		}).done(function(response){
+			console.log(response)
+			$(".col-md-6").html(response);
+		});
 	});
+
 });
+

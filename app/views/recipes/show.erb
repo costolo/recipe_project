@@ -1,4 +1,4 @@
-<section class="flip">	
+<section class="flip">
 	<div id="card">
 		<h1><%=@recipe.name%></h1>
 		<figure class="front">
@@ -19,7 +19,10 @@
 	<button type="submit" id="flip">magic</button>
 </section> -->
 </section>
+
+
 <% if current_user %>
+	<%= erb :'/votes/_vote' %>
 	<%= erb :'/comments/_comment' %>
 	<%= erb :'/comments/_comment_form' %>
 <% end %>
