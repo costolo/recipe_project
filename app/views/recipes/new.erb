@@ -1,4 +1,4 @@
-<div>
+<div id="recipe-form">
   <form action="/recipes" method="POST">
     <input type="hidden" name='recipe[user_id]' value='<%= current_user.id %>'>
     <input type='text' name="recipe[name]" placeholder="name"><br>

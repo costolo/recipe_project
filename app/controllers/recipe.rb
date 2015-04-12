@@ -1,5 +1,5 @@
 get '/recipes' do
-  @recipes = Recipe.all
+  @recipes = Recipe.all.order("vote_count DESC")
   erb :'/recipes/index'
 end
 
