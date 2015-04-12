@@ -19,13 +19,13 @@ th {
   opacity: 1;
 }
 
-.col-md-4{
+.col-md-4 {
   width: 20%;
 }
 
-.col-md-6{
+.col-md-6 {
   float:right;
-  width: 80%;
+  width: 68%;
 }
 
 .right-align {
@@ -44,4 +44,24 @@ th {
 
 .auth {
   margin-top: 50px;
+  margin-left: 400px;
 }
+
+.col-md-2 {
+  margin-left: 215px;
+  width: 125px;
+}
+
+.navbar-header {
+  text-indent: 200px;
+}
+
+.stripe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 210px;
+  background-color: #949494;
+}
+
