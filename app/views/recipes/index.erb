@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col-md-2">
+		<% @recipes.each do |recipe| %>
+			<a href="/recipes/<%= recipe.id %>" class="recipe_link"><%= recipe.name %></a><br>
+		<% end %>
+	</div>
+
+	<div class="col-md-6">
+	</div>
+
+	<div class="comment">
+	</div>
+</div>
+
+
+
+

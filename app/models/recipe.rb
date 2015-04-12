@@ -3,9 +3,23 @@ class Recipe < ActiveRecord::Base
   has_many :votes
   has_many :comments
 
-  before_save :set_vote_count
+  before_create :set_vote_count
 
   def set_vote_count
     self.vote_count = 0
+  end
+
+  def ingredients_array
+  	self.ingredients.split(" ")
+  end
+
+  def upvote
+    new_count = self.vote_count + 1
+    self.update(vote_count: new_count)
+  end
+
+  def downvote
+    new_count = self.vote_count - 1
+    self.update(vote_count: new_count)
   end
 end

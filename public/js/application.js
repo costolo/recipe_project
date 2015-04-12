@@ -1,7 +1,42 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+	$('.recipe_link').click(function(event) {
+		event.preventDefault();
+		var $target = $(event.target);
+		console.log($target.attr("href"))
+		$.ajax({
+			url: $target.attr("href"),
+			type: 'GET',
+			data: $target.serialize()
+		}).done(function(response){
+			$(".col-md-6").html(response);
+		});
+	});
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+	$('.add_comment').submit(function(event) {
+		event.preventDefault();
+		var $target = $(event.target);
+		console.log($target.attr("action"));
+		$.ajax({
+			url: $target.attr("action"),
+			type: 'POST',
+			data: $target.serialize()
+		}).done(function(response){
+			$(".col-md-6").html(response);
+		});
+	});
+
+	$('.vote_action').submit(function(event) {
+		event.preventDefault();
+		var $target = $(event.target);
+		console.log($target.attr("action"))
+		$.ajax({
+			url: $target.attr("action"),
+			type: 'GET'
+		}).done(function(response){
+			console.log(response)
+			$("#vote-div").html(response);
+		});
+	});
+
 });
+

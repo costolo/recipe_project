@@ -9,14 +9,11 @@ post '/signin' do
     user = unconfirmed_user.authenticate(params[:password])
     if user
       session_in!(user)
-      redirect '/authenticated'
     else
-      set_error! "Incorrect Password"
-      redirect '/signin'
+      bounce_with_error_msg! "Incorrect Password"
     end
   else
-    set_error! "Incorrect Username"
-    redirect '/signin'
+    bounce_with_error_msg! "Incorrect Username"
   end
 end
 
@@ -25,12 +22,18 @@ get '/signup' do
 end
 
 post '/signup' do
-  user = User.create(params[:user])
-  if user.id
+  unless name_unique?(params[:name])
+    set_error! "Username already exists."
+    redirect '/signup'
+  end
+
+  set_error_if_invalid!(params[:name], params[:password])
+  user = User.create(name: params[:name], password: params[:password], password_confirmation: params[:password_confirmation])
+
+  if user.id && account_valid?(params[:name], params[:password])
     session_in!(user)
-    redirect '/'
   else
-    set_error! "Passwords do not match."
+    set_error! "Passwords do not match." if password_valid?(params[:password])
     redirect '/signup'
   end
 end
@@ -39,12 +42,4 @@ get '/signout' do
   session_out!
 
   redirect '/'
-end
-
-get '/authenticated' do
-  if session[:user_id]
-    erb :'auth/authenticated'
-  else
-    redirect '/signin'
-  end
 end

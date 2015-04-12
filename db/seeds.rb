@@ -1,4 +1,24 @@
-harry = User.create(name: "Harry", password: "asdf")
-chicken = Recipe.create(name: "chicken", ingredients: "chicken", instructions: "cook chicken", user_id: 1)
-harrys_vote = Vote.create(user_id: 1, recipe_id: 1)
-harrys_comment = Comment.create(user_id: 1, recipe_id: 1, content: "this recipe sux")
+require 'faker'
+
+u1 = User.create(name:"u1", password: "u1")
+u2 = User.create(name:"u2", password: "u2")
+u3 = User.create(name:"u3", password: "u3")
+u4 = User.create(name:"u4", password: "u4")
+
+5.times do
+	Recipe.create(name: Faker::Hacker.noun, ingredients: Faker::Lorem.words(5).join(" "), instructions: Faker::Hacker.say_something_smart, user_id: 1)
+end
+
+5.times do
+	Recipe.create(name: Faker::Hacker.noun, ingredients: Faker::Lorem.words(5).join(" "), instructions: Faker::Hacker.say_something_smart, user_id: 2)
+end
+
+5.times do
+	Recipe.create(name: Faker::Hacker.noun, ingredients: Faker::Lorem.words(5).join(" "), instructions: Faker::Hacker.say_something_smart, user_id: 3)
+end
+
+5.times do
+	Recipe.create(name: Faker::Hacker.noun, ingredients: Faker::Lorem.words(5).join(" "), instructions: Faker::Hacker.say_something_smart, user_id: 4)
+end
+
+

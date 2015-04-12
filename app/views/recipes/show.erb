@@ -1,0 +1,17 @@
+<div id="recipe">
+	<h1><%=@recipe.name%></h1>
+	<h3> ingredients </h3>
+	<% @recipe.ingredients_array.each do |ingredient| %>
+		<%= ingredient %><br>
+	<% end %>
+	<h3>instructions</h3>
+	<%= @recipe.instructions %><br>
+	<br>
+	<p>By: <a href='/users/<%= @recipe.user_id %>'><%= @recipe.user.name %></a></p>
+</div>
+
+<% if current_user %>
+	<%= erb :'/votes/_vote' %>
+	<%= erb :'/comments/_comment' %>
+	<%= erb :'/comments/_comment_form' %>
+<% end %>

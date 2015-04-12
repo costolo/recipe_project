@@ -1,0 +1,8 @@
+<h4>comments</h4>
+<div id="comment-overflow">
+	<% @comments.each do |comment| %>
+	<li><%= comment.content %> - <a href="/users/<%= comment.user_id %>"><%= comment.user.name %></a></li>
+	<% end %>
+</div>
+
+
