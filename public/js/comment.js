@@ -1,10 +1,10 @@
-$('.recipe_link').click(function(event) {
+$('.add_comment').submit(function(event) {
 	event.preventDefault();
 	var $target = $(event.target);
-	console.log($target.attr("href"))
+	console.log($target.attr("action"));
 	$.ajax({
-		url: $target.attr("href"),
-		type: 'GET',
+		url: $target.attr("action"),
+		type: 'POST',
 		data: $target.serialize()
 	}).done(function(response){
 		$(".col-md-6").html(response);
