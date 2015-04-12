@@ -9,6 +9,7 @@ th {
 
 #recipe h1{
   margin-top:0px;
+
 }
 
 .vote {
@@ -26,6 +27,7 @@ th {
 .col-md-6 {
   float:right;
   width: 68%;
+  border-left:black 1px solid;
 }
 
 .right-align {
@@ -63,5 +65,10 @@ th {
   height: 100%;
   width: 210px;
   background-color: #949494;
+}
+
+#comment-overflow {
+  max-height:100px;
+  overflow:auto;
 }
 
