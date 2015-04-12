@@ -21,4 +21,7 @@ end
 	Recipe.create(name: Faker::Hacker.noun, ingredients: Faker::Lorem.words(5).join(" "), instructions: Faker::Hacker.say_something_smart, user_id: 4)
 end
 
+	20.times do
+		Comment.create(content: "lol", user_id: 2, recipe_id: 1)
+	end
 

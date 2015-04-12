@@ -8,7 +8,7 @@
 	<%= @recipe.instructions %><br>
 	<br>
 	By: <a href='/users/<%= @recipe.user_id %>'><%= @recipe.user.name %></a>
-	<% if current_user.id == @recipe.user.id %>
+	<% if current_user && current_user.id == @recipe.user.id %>
 		|<a href='/recipes/<%= @recipe.id %>/edit'> edit</a>
 	<% end %>
 </div>
