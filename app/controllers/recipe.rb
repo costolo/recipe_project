@@ -33,28 +33,28 @@ end
 
 get '/recipes/:id/upvotes' do |id|
   if request.xhr?
-    recipe = Recipe.find(id)
-    if !vote_exists?(current_user, recipe)
-      Vote.create(recipe_id: recipe.id, user_id: current_user.id)
-      recipe.upvote
-      redirect "/recipes/#{recipe.id}"
+    @recipe = Recipe.find(id)
+    if !vote_exists?(current_user, @recipe)
+      Vote.create(recipe_id: @recipe.id, user_id: current_user.id)
+      @recipe.upvote
+      erb :'votes/_vote'
     else
       set_error!("You may only vote once idiot.")
-      redirect "/recipes/#{recipe.id}"
+      erb :'votes/_vote'
     end
   end
 end
 
 get '/recipes/:id/downvotes' do |id|
   if request.xhr?
-    recipe = Recipe.find(id)
-    if !vote_exists?(current_user, recipe)
-      Vote.create(recipe_id: recipe.id, user_id: current_user.id)
-      recipe.downvote
-      redirect "/recipes/#{recipe.id}"
+    @recipe = Recipe.find(id)
+    if !vote_exists?(current_user, @recipe)
+      Vote.create(recipe_id: @recipe.id, user_id: current_user.id)
+      @recipe.downvote
+      erb :'votes/_vote'
     else
       set_error!("You may only vote once idiot.")
-      redirect "/recipes/#{recipe.id}"
+      erb :'votes/_vote'
     end
   end
 end

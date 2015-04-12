@@ -1,4 +1,4 @@
-<div>
+<div id="vote-div">
   <form action='/recipes/<%= @recipe.id %>/upvotes' method='POST' class='vote_action'>
     <input type='hidden' name='_method' value='PUT'>
     <input type='image' src='upvote.png' alt='upvote' class='vote'>
@@ -9,6 +9,6 @@
     <input type='image' src='downvote.png' alt='downvote' class='vote'>
   </form>
 
-  <%= get_error %>
   <p> votes: <%= @recipe.vote_count %></p>
+  <p><%= get_error %></p>
 </div>

@@ -20,12 +20,12 @@ th {
 }
 
 .col-md-4{
-	width: 20%;
+  width: 20%;
 }
 
 .col-md-6{
-	float:right;
-	width: 80%;
+  float:right;
+  width: 80%;
 }
 
 .right-align {
@@ -34,3 +34,14 @@ th {
   text-align: right;
 }
 
+.row {
+  margin-top:50px;
+}
+
+.container {
+  margin-left:0px;
+}
+
+.auth {
+  margin-top: 50px;
+}
