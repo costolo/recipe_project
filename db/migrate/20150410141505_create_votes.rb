@@ -6,5 +6,7 @@ class CreateVotes < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index(:votes, :user_id)
+    add_index(:votes, :recipe_id)
   end
 end

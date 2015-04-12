@@ -10,5 +10,6 @@ class CreateRecipes < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index(:recipes, :user_id)
   end
 end
