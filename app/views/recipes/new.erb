@@ -1,4 +1,4 @@
-<div>
+<div id="recipe-form">
   <form action="/recipes" method="POST">
     <input type="hidden" name='recipe[user_id]' value='<%= current_user.id %>'>
     <input type='text' name="recipe[name]" placeholder="name"><br>
@@ -7,7 +7,6 @@
     <br>
     <textarea rows='5' cols='50' name="recipe[instructions]" placeholder="instructions"></textarea><br>
     <br>
-    <input type="text" name="recipe[photo_url]" placeholder="photo url">
     <input type="submit">
   </form>
 </div>
