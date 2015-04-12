@@ -33,7 +33,9 @@ end
 
 get '/recipes/:id/edit' do |id|
   @recipe = Recipe.find(id)
-  erb :'recipes/edit'
+  if current_user.id == @recipe.user.id
+    erb :'recipes/edit'
+  end
 end
 
 get '/recipes/:id/upvotes' do |id|

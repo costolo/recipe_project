@@ -7,7 +7,10 @@
 	<h3>instructions</h3>
 	<%= @recipe.instructions %><br>
 	<br>
-	<p>By: <a href='/users/<%= @recipe.user_id %>'><%= @recipe.user.name %></a></p>
+	By: <a href='/users/<%= @recipe.user_id %>'><%= @recipe.user.name %></a>
+	<% if current_user.id == @recipe.user.id %>
+		|<a href='/recipes/<%= @recipe.id %>/edit'> edit</a>
+	<% end %>
 </div>
 
 <% if current_user %>
