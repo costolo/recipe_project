@@ -19,13 +19,13 @@ th {
   opacity: 1;
 }
 
-.col-md-4{
-  width: 20%;
+.col-md-2{
+  width: 40%;
 }
 
 .col-md-6{
   float:right;
-  width: 80%;
+  width: 60%;
 }
 
 .right-align {

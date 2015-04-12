@@ -6,7 +6,6 @@ $('.vote_action').submit(function(event) {
 		url: $target.attr("action"),
 		type: 'GET'
 	}).done(function(response){
-		console.log(response)
 		$("#vote-div").html(response);
 	});
 });

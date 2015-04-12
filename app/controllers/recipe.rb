@@ -3,6 +3,11 @@ get '/recipes' do
   erb :'/recipes/index'
 end
 
+get '/recipes/index' do
+  @recipes = Recipe.all.order("vote_count DESC")
+  erb :'/recipes/index', layout: false
+end
+
 get '/recipes/new' do
   erb :'/recipes/new'
 end
