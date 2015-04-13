@@ -3,8 +3,10 @@
 <div class="row">
 	<div class="col-md-2">
 		<% @recipes.each do |recipe| %>
-			<span><%= recipe.vote_count %> - </span>
-			<a href="/recipes/<%= recipe.id %>" class="recipe_link"><%= recipe.name %></a><br>
+			<div id="index-overflow"><span><%= recipe.vote_count %> - </span>
+				<a href="/recipes/<%= recipe.id %>" class="recipe_link"><%= recipe.name %></a><br>
+				<br>
+			</div>
 		<% end %>
 	</div>
 

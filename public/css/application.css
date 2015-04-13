@@ -1,6 +1,7 @@
 body{
   width:100%;
   padding:20px;
+  max-height:100%;
 }
 
 th {
@@ -9,7 +10,6 @@ th {
 
 #recipe h1{
   margin-top:0px;
-
 }
 
 .vote {
@@ -20,13 +20,13 @@ th {
   opacity: 1;
 }
 
-.col-md-4 {
-  width: 20%;
+.col-md-2{
+  position:relative;
 }
 
 .col-md-6 {
   float:right;
-  width: 68%;
+  width: 60%;
   border-left:black 1px solid;
 }
 
@@ -69,6 +69,10 @@ th {
 
 #comment-overflow {
   max-height:100px;
+  overflow:auto;
+}
+
+#index-overflow{
   overflow:auto;
 }
 
